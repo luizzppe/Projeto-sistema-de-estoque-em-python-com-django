@@ -1,0 +1,47 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}Detalhes do Produto - {{ produto.nome }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="mb-4">{{ produto.nome }}</h1>
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" class="img-fluid rounded-start" alt="{{ produto.nome }}" style="height: 100%; object-fit: cover;">
+                    {% else %}
+                    <div class="bg-secondary d-flex align-items-center justify-content-center" style="height: 100%;">
+                        <span class="text-white">Sem imagem</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações do Produto</h5>
+                        <p class="card-text">
+                            <strong>Descrição:</strong> {{ produto.descricao|default:"Sem descrição" }}<br>
+                            <strong>Categoria:</strong> {{ produto.categoria|default:"Sem categoria" }}<br>
+                            <strong>Preço:</strong> R$ {{ produto.preco }}<br>
+                            <strong>Quantidade Disponível:</strong> {{ produto.quantidade }}<br>
+                            <strong>Tags:</strong> 
+                            {% if produto.tags.all %}
+                                {% for tag in produto.tags.all %}
+                                    <span class="badge bg-primary">{{ tag.nome }}</span>
+                                {% endfor %}
+                            {% else %}
+                                Sem tags
+                            {% endif %}
+                        </p>
+                        <a href="{% url 'estoque:produto_update' produto.pk %}" class="btn btn-warning">Editar</a>
+                        <a href="{% url 'estoque:produto_delete' produto.pk %}" class="btn btn-danger">Excluir</a>
+                        <a href="{% url 'estoque:produto_list' %}" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

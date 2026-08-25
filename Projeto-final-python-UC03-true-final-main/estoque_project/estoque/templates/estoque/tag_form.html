@@ -1,0 +1,25 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}{{ action }} Tag{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="mb-4">{{ action }} Tag</h1>
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ form.nome.id_for_label }}" class="form-label">Nome</label>
+                        {{ form.nome }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="{% url 'estoque:tag_list' %}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

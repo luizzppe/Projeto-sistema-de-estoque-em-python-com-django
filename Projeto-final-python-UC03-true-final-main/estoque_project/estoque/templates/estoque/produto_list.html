@@ -1,0 +1,46 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">Lista de Produtos</h1>
+        <a href="{% url 'estoque:produto_create' %}" class="btn btn-success mb-3">Adicionar Novo Produto</a>
+        
+        {% if produtos %}
+        <div class="row">
+            {% for produto in produtos %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <span class="text-white">Sem imagem</span>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <p class="card-text">
+                            <strong>Categoria:</strong> {{ produto.categoria|default:"Sem categoria" }}<br>
+                            <strong>Preço:</strong> R$ {{ produto.preco }}<br>
+                            <strong>Quantidade:</strong> {{ produto.quantidade }}
+                        </p>
+                        <a href="{% url 'estoque:produto_detail' produto.pk %}" class="btn btn-info btn-sm">Ver Detalhes</a>
+                        <a href="{% url 'estoque:produto_update' produto.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'estoque:produto_delete' produto.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info" role="alert">
+            Nenhum produto cadastrado ainda.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

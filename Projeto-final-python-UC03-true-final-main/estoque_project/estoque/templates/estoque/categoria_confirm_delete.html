@@ -1,0 +1,22 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}Confirmar Exclusão - {{ categoria.nome }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="mb-4">Confirmar Exclusão</h1>
+        <div class="card">
+            <div class="card-body">
+                <p>Tem certeza de que deseja excluir a categoria <strong>{{ categoria.nome }}</strong>?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+                    <a href="{% url 'estoque:categoria_list' %}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

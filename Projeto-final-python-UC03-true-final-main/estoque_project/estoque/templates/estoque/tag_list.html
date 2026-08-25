@@ -1,0 +1,39 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}Lista de Tags{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">Lista de Tags</h1>
+        <a href="{% url 'estoque:tag_create' %}" class="btn btn-success mb-3">Adicionar Nova Tag</a>
+        
+        {% if tags %}
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.nome }}</td>
+                    <td>
+                        <a href="{% url 'estoque:tag_update' tag.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'estoque:tag_delete' tag.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-info" role="alert">
+            Nenhuma tag cadastrada ainda.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

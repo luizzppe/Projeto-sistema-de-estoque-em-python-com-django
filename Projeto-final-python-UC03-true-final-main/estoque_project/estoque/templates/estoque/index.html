@@ -1,0 +1,43 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}Página Inicial - Sistema de Estoque{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">Bem-vindo ao Sistema de Estoque</h1>
+        <p class="lead">Gerencie seus produtos, categorias e tags de forma eficiente.</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Produtos</h5>
+                <p class="card-text">Visualize, adicione, edite e exclua produtos do estoque.</p>
+                <a href="{% url 'estoque:produto_list' %}" class="btn btn-primary">Gerenciar Produtos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Categorias</h5>
+                <p class="card-text">Organize seus produtos por categorias.</p>
+                <a href="{% url 'estoque:categoria_list' %}" class="btn btn-primary">Gerenciar Categorias</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tags</h5>
+                <p class="card-text">Adicione tags para facilitar a busca e organização.</p>
+                <a href="{% url 'estoque:tag_list' %}" class="btn btn-primary">Gerenciar Tags</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

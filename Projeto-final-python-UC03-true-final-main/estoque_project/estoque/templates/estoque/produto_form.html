@@ -1,0 +1,49 @@
+{% extends "estoque/base.html" %}
+
+{% block title %}{{ action }} Produto{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="mb-4">{{ action }} Produto</h1>
+        <div class="card">
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ form.nome.id_for_label }}" class="form-label">Nome</label>
+                        {{ form.nome }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.descricao.id_for_label }}" class="form-label">Descrição</label>
+                        {{ form.descricao }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.preco.id_for_label }}" class="form-label">Preço</label>
+                        {{ form.preco }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.quantidade.id_for_label }}" class="form-label">Quantidade</label>
+                        {{ form.quantidade }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.imagem.id_for_label }}" class="form-label">Imagem</label>
+                        {{ form.imagem }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.categoria.id_for_label }}" class="form-label">Categoria</label>
+                        {{ form.categoria }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.tags.id_for_label }}" class="form-label">Tags</label>
+                        {{ form.tags }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="{% url 'estoque:produto_list' %}" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
