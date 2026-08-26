@@ -178,9 +178,3 @@ Para interromper a execução:
 ```text
 Ctrl + C
 ```
-
-## Referências
-
-[1]: https://docs.python.org/3/library/venv.html "Python Documentation — venv"
-
-[2]: https://docs.djangoproject.com/en/6.1/topics/migrations/ "Django Documentation — Migrations"
