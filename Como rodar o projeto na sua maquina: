@@ -1,6 +1,4 @@
-# Projeto Django
-
-Este README explica como baixar e executar o projeto Django pelo **CMD do Windows**.
+Este Arquivo explica como baixar e executar o projeto Django pelo **CMD do Windows**.
 
 ## Requisitos
 
@@ -71,7 +69,7 @@ venv\Scripts\activate
 
 Quando funcionar, aparecerá `(venv)` no início da linha, parecido com:
 
-```text
+```
 (venv) C:\caminho\do\projeto>
 ```
 
@@ -122,13 +120,13 @@ python manage.py runserver
 
 Quando o servidor iniciar, abra o navegador e acesse a página principal:
 
-```text
+```
 http://127.0.0.1:8000/
 ```
 
 Para acessar a página de administração, abra:
 
-```text
+```
 http://127.0.0.1:8000/admin/
 ```
 
@@ -138,7 +136,7 @@ Entre usando o usuário e a senha criados com o comando `createsuperuser`.
 
 Para parar o servidor, volte ao CMD onde ele está rodando e pressione:
 
-```text
+```
 Ctrl + C
 ```
 
@@ -154,7 +152,7 @@ python manage.py runserver
 
 Depois, acesse:
 
-```text
+```
 http://127.0.0.1:8000/
 ```
 
@@ -175,12 +173,6 @@ python manage.py runserver
 
 Para interromper a execução:
 
-```text
+```
 Ctrl + C
 ```
-
-## Referências
-
-[1]: https://docs.python.org/3/library/venv.html "Python Documentation — venv"
-
-[2]: https://docs.djangoproject.com/en/6.1/topics/migrations/ "Django Documentation — Migrations"
